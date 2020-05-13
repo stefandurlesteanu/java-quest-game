@@ -42,11 +42,11 @@ public class MapLoader {
                             map.setPlayer(new Player(cell));
                             break;
                         case 'k':
-                            cell.setType(CellType.FLOOR);
+                            cell.setType(CellType.KEY);
                             new key(cell);
                             break;
                         case 'g':
-                            cell.setType(CellType.FLOOR);
+                            cell.setType(CellType.GUN);
                             new gun(cell);
                             break;
                         default:
