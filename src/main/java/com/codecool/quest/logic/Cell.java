@@ -36,9 +36,7 @@ public class Cell implements Drawable {
     }
 
     @Override
-    public String getTileName() {
-        return type.getTileName();
-    }
+    public String getTileName() { return type.getTileName(); }
 
     public int getX() {
         return x;
