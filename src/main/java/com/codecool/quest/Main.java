@@ -3,6 +3,7 @@ package com.codecool.quest;
 import com.codecool.quest.logic.Cell;
 import com.codecool.quest.logic.GameMap;
 import com.codecool.quest.logic.MapLoader;
+import com.codecool.quest.logic.actors.Player;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -33,11 +34,13 @@ public class Main extends Application {
         GridPane ui = new GridPane();
         ui.setPrefWidth(200);
         ui.setPadding(new Insets(10));
-        Button pickUpButton = new Button("pick up item");
+        Button pickUpButton = new Button("pick up item");;
+        pickUpButton.setOnAction(e -> map.getPlayer().pickUpItems());
 
         ui.add(new Label("Health: "), 0, 0);
         ui.add(healthLabel, 1, 0);
         ui.add(pickUpButton,0,2);
+
 
         BorderPane borderPane = new BorderPane();
 
@@ -47,7 +50,7 @@ public class Main extends Application {
         Scene scene = new Scene(borderPane);
         primaryStage.setScene(scene);
         refresh();
-        scene.setOnKeyPressed(this::onKeyPressed);
+        scene.addEventFilter(KeyEvent.KEY_PRESSED,this::onKeyPressed);
 
         primaryStage.setTitle("Codecool Quest");
         primaryStage.show();
