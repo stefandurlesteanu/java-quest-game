@@ -28,7 +28,7 @@ public abstract class Actor implements Drawable {
             cell.setActor(null);
             nextCell.setActor(this);
             cell = nextCell;
-        } else if(nextCell.getActor().getTileName() == "skeleton"){
+        } else if(nextCell.getActor().getTileName().equals("skeleton")){
             attack(nextCell.getActor());
         }
 
@@ -37,6 +37,12 @@ public abstract class Actor implements Drawable {
     public void attack(Actor opponent){
         opponent.health -= playerDamage;
         cell.getActor().health -= skeletonDamage;
+        if(opponent.health <=0){
+            opponent.getCell().setActor(null);
+        }
+        if (this.health <= 0){
+            cell.setActor(null);
+        }
     }
 
 
