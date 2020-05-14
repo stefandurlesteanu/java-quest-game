@@ -7,6 +7,9 @@ import com.codecool.quest.logic.Drawable;
 public abstract class Actor implements Drawable {
     private Cell cell;
     private int health;
+    protected int playerDamage = 5;
+    protected int skeletonDamage = 2;
+
 
     public Actor(Cell cell, int health) {
         this.cell = cell;
@@ -25,8 +28,17 @@ public abstract class Actor implements Drawable {
             cell.setActor(null);
             nextCell.setActor(this);
             cell = nextCell;
+        } else if(nextCell.getActor().getTileName() == "skeleton"){
+            attack(nextCell.getActor());
         }
+
     }
+
+    public void attack(Actor opponent){
+        opponent.health -= playerDamage;
+        cell.getActor().health -= skeletonDamage;
+    }
+
 
 
     public int getHealth() {
