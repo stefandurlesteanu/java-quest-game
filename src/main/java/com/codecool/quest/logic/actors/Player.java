@@ -10,7 +10,9 @@ public class Player extends Actor {
     }
 
     public void pickUpItems(){
-        System.out.println(this.getCell().getType());
+        if(this.getCell().getType() != CellType.FLOOR){
+            this.getCell().setType(CellType.FLOOR);
+        }
     }
 
     public String getTileName() {
