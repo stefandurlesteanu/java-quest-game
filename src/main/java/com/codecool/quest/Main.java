@@ -34,7 +34,7 @@ public class Main extends Application {
         GridPane ui = new GridPane();
         ui.setPrefWidth(200);
         ui.setPadding(new Insets(10));
-        Button pickUpButton = new Button("pick up item");;
+        Button pickUpButton = new Button("Pick Up Item");
         pickUpButton.setOnAction(e -> map.getPlayer().pickUpItems());
 
         ui.add(new Label("Health: "), 0, 0);

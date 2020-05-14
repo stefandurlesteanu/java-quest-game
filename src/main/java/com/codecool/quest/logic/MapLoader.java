@@ -1,6 +1,7 @@
 package com.codecool.quest.logic;
 
 import com.codecool.quest.logic.actors.Player;
+import com.codecool.quest.logic.actors.Scorpion;
 import com.codecool.quest.logic.actors.Skeleton;
 
 import java.io.InputStream;
@@ -37,7 +38,7 @@ public class MapLoader {
                             break;
                         case '@':
                             cell.setType(CellType.FLOOR);
-                            map.setPlayer(new Player(cell, 30));
+                            map.setPlayer(new Player(cell));
                             break;
                         case 'k':
                             cell.setType(CellType.KEY);
@@ -47,6 +48,25 @@ public class MapLoader {
                             break;
                         case 'd':
                             cell.setType(CellType.OPENDOOR);
+                            break;
+                        case 'D':
+                            cell.setType(CellType.CLOSEDOOR);
+                            break;
+                        case 'o':
+                            cell.setType(CellType.FLOOR);
+                            new Scorpion(cell, 8);
+                            break;
+                        case '1':
+                            cell.setType(CellType.TREE);
+                            break;
+                        case '2':
+                            cell.setType(CellType.BUSH);
+                            break;
+                        case '3':
+                            cell.setType(CellType.TREE2);
+                            break;
+                        case '4':
+                            cell.setType(CellType.FLOWER);
                             break;
                         default:
                             throw new RuntimeException("Unrecognized character: '" + line.charAt(x) + "'");
