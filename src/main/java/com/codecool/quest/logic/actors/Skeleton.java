@@ -4,6 +4,10 @@ import com.codecool.quest.logic.Cell;
 import com.codecool.quest.logic.actors.Actor;
 
 public class Skeleton extends Actor {
+    public Skeleton(Cell cell, int health) {
+        super(cell, health);
+    }
+
     public Skeleton(Cell cell) {
         super(cell);
     }

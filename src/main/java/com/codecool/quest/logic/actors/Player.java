@@ -5,7 +5,11 @@ import com.codecool.quest.logic.CellType;
 import com.codecool.quest.logic.actors.Actor;
 
 public class Player extends Actor {
-    public Player(Cell cell) {
+    public Player(Cell cell, int health) {
+        super(cell, health);
+    }
+
+    public Player(Cell cell){
         super(cell);
     }
 
