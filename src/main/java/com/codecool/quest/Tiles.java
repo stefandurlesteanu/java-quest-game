@@ -28,7 +28,10 @@ public class Tiles {
     static {
         //Actors
         tileMap.put("scorpion", new Tile(24,5));
-        tileMap.put("player", new Tile(27, 0));
+        tileMap.put("nakedPlayer", new Tile(25, 0));
+        tileMap.put("swordPlayer", new Tile(27, 0));
+        tileMap.put("armorSwordPlayer", new Tile(28, 0));
+        tileMap.put("armorPlayer", new Tile(30, 0));
         tileMap.put("skeleton", new Tile(29, 6));
         //Buildings
         tileMap.put("empty", new Tile(0, 0));
@@ -39,6 +42,7 @@ public class Tiles {
         //Inventory
         tileMap.put("key", new Tile(16,23));
         tileMap.put("axe", new Tile(6,30));
+        tileMap.put("armor", new Tile(0,23));
         //Nature
         tileMap.put("tree", new Tile(0,1));
         tileMap.put("bush", new Tile(5,0));

@@ -11,7 +11,8 @@ public enum CellType {
     TREE("tree"),
     BUSH("bush"),
     TREE2("tree2"),
-    FLOWER("flower");
+    FLOWER("flower"),
+    ARMOR("armor");
 
     private final String tileName;
 

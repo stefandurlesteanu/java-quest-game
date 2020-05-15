@@ -36,11 +36,11 @@ public class MapLoader {
                             break;
                         case 's':
                             cell.setType(CellType.FLOOR);
-                            new Skeleton(cell, 10, 2);
+                            new Skeleton(cell, 10, 2,0);
                             break;
                         case '@':
                             cell.setType(CellType.FLOOR);
-                            map.setPlayer(new Player(cell, 15, 5));
+                            map.setPlayer(new Player(cell, 15, 3,0));
                             break;
                         case 'k':
                             cell.setType(CellType.KEY);
@@ -56,7 +56,7 @@ public class MapLoader {
                             break;
                         case 'o':
                             cell.setType(CellType.FLOOR);
-                            new Scorpion(cell, 8, 3);
+                            new Scorpion(cell, 8, 3,1);
                             break;
                         case '1':
                             cell.setType(CellType.TREE);
@@ -69,6 +69,9 @@ public class MapLoader {
                             break;
                         case '4':
                             cell.setType(CellType.FLOWER);
+                            break;
+                        case 'a':
+                            cell.setType(CellType.ARMOR);
                             break;
                         default:
                             throw new RuntimeException("Unrecognized character: '" + line.charAt(x) + "'");
