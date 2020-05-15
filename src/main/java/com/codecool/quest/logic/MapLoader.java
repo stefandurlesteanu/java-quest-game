@@ -1,5 +1,6 @@
 package com.codecool.quest.logic;
 
+import com.codecool.quest.Tiles;
 import com.codecool.quest.logic.actors.Player;
 import com.codecool.quest.logic.actors.Scorpion;
 import com.codecool.quest.logic.actors.Skeleton;
@@ -13,6 +14,7 @@ public class MapLoader {
         Scanner scanner = new Scanner(is);
         int width = scanner.nextInt();
         int height = scanner.nextInt();
+        Tiles.zoom = scanner.nextInt();
 
         scanner.nextLine(); // empty line
 
@@ -34,17 +36,17 @@ public class MapLoader {
                             break;
                         case 's':
                             cell.setType(CellType.FLOOR);
-                            new Skeleton(cell);
+                            new Skeleton(cell, 10, 2);
                             break;
                         case '@':
                             cell.setType(CellType.FLOOR);
-                            map.setPlayer(new Player(cell));
+                            map.setPlayer(new Player(cell, 15, 5));
                             break;
                         case 'k':
                             cell.setType(CellType.KEY);
                             break;
                         case 'g':
-                            cell.setType(CellType.GUN);
+                            cell.setType(CellType.AXE);
                             break;
                         case 'd':
                             cell.setType(CellType.OPENDOOR);
@@ -54,7 +56,7 @@ public class MapLoader {
                             break;
                         case 'o':
                             cell.setType(CellType.FLOOR);
-                            new Scorpion(cell, 8);
+                            new Scorpion(cell, 8, 3);
                             break;
                         case '1':
                             cell.setType(CellType.TREE);

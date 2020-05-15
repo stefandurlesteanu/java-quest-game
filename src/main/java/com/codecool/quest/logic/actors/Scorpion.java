@@ -4,8 +4,8 @@ import com.codecool.quest.logic.Cell;
 import com.codecool.quest.logic.actors.Actor;
 
 public class Scorpion extends Actor {
-    public Scorpion(Cell cell, int health) {
-        super(cell, health);
+    public Scorpion(Cell cell, int health, int damage) {
+        super(cell, health, damage);
     }
 
     public Scorpion(Cell cell) {

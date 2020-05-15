@@ -8,7 +8,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Tiles {
-    public static int TILE_WIDTH = 32;
+    public static int zoom = 1;
+    public static int TILE_WIDTH = 32/zoom;
+
 
     private static Image tileset = new Image("/tiles.png", 543 * 2, 543 * 2, true, false);
     private static Map<String, Tile> tileMap = new HashMap<>();
@@ -16,10 +18,10 @@ public class Tiles {
     public static class Tile {
         public final int x, y, w, h;
         Tile(int i, int j) {
-            x = i * (TILE_WIDTH + 2);
-            y = j * (TILE_WIDTH + 2);
-            w = TILE_WIDTH;
-            h = TILE_WIDTH;
+            x = i * (TILE_WIDTH*zoom + 2);
+            y = j * (TILE_WIDTH*zoom + 2);
+            w = TILE_WIDTH*zoom;
+            h = TILE_WIDTH*zoom;
         }
     }
 
@@ -36,7 +38,7 @@ public class Tiles {
         tileMap.put("closeDoor", new Tile(9,10));
         //Inventory
         tileMap.put("key", new Tile(16,23));
-        tileMap.put("gun", new Tile(5,31));
+        tileMap.put("axe", new Tile(6,30));
         //Nature
         tileMap.put("tree", new Tile(0,1));
         tileMap.put("bush", new Tile(5,0));
@@ -49,5 +51,13 @@ public class Tiles {
         Tile tile = tileMap.get(d.getTileName());
         context.drawImage(tileset, tile.x, tile.y, tile.w, tile.h,
                 x * TILE_WIDTH, y * TILE_WIDTH, TILE_WIDTH, TILE_WIDTH);
+    }
+
+    public static void setZoom(int newZoom){
+        zoom = newZoom;
+    }
+
+    public static int getZoom(){
+        return zoom;
     }
 }

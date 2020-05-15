@@ -2,8 +2,8 @@ package com.codecool.quest;
 
 import com.codecool.quest.logic.Cell;
 import com.codecool.quest.logic.GameMap;
+import com.codecool.quest.logic.Inventory;
 import com.codecool.quest.logic.MapLoader;
-import com.codecool.quest.logic.actors.Player;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -20,10 +20,11 @@ import javafx.stage.Stage;
 public class Main extends Application {
     GameMap map = MapLoader.loadMap();
     Canvas canvas = new Canvas(
-            map.getWidth() * Tiles.TILE_WIDTH,
+            ((map.getWidth() * Tiles.TILE_WIDTH)),
             map.getHeight() * Tiles.TILE_WIDTH);
     GraphicsContext context = canvas.getGraphicsContext2D();
     Label healthLabel = new Label();
+
 
     public static void main(String[] args) {
         launch(args);
@@ -34,18 +35,26 @@ public class Main extends Application {
         GridPane ui = new GridPane();
         ui.setPrefWidth(200);
         ui.setPadding(new Insets(10));
+        ui.setVgap(5);
+        ui.setHgap(5);
         Button pickUpButton = new Button("Pick Up Item");
         pickUpButton.setOnAction(e -> map.getPlayer().pickUpItems());
+        Button inventory = new Button("Inventory");
+        inventory.setOnAction(e -> Inventory.display("Inventory"));
+
+
 
         ui.add(new Label("Health: "), 0, 0);
         ui.add(healthLabel, 1, 0);
         ui.add(pickUpButton,0,2);
+        ui.add(inventory,1,2);
 
 
         BorderPane borderPane = new BorderPane();
 
         borderPane.setCenter(canvas);
         borderPane.setRight(ui);
+
 
         Scene scene = new Scene(borderPane);
         primaryStage.setScene(scene);
@@ -91,6 +100,9 @@ public class Main extends Application {
                     Tiles.drawTile(context, cell, x, y);
                 }
             }
+        }
+        if(Inventory.getItems().contains("axe")){
+            System.out.println("+++");
         }
         healthLabel.setText("" + map.getPlayer().getHealth());
     }

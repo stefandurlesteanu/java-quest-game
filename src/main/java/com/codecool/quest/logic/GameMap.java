@@ -1,5 +1,6 @@
 package com.codecool.quest.logic;
 
+import com.codecool.quest.Tiles;
 import com.codecool.quest.logic.actors.Player;
 
 public class GameMap {
@@ -39,4 +40,5 @@ public class GameMap {
     public int getHeight() {
         return height;
     }
+
 }
