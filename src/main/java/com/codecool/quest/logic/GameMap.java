@@ -11,7 +11,6 @@ public class GameMap {
     private Cell[][] cells;
 
     private Player player;
-    private Scorpion scorpion;
 
     public GameMap(int width, int height, CellType defaultCellType) {
         this.width = width;
@@ -35,8 +34,6 @@ public class GameMap {
     public Player getPlayer() {
         return player;
     }
-
-    public Scorpion getScorpion(){return scorpion;}
 
     public int getWidth() {
         return width;

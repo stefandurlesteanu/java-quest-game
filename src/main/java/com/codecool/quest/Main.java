@@ -5,6 +5,7 @@ import com.codecool.quest.logic.GameMap;
 import com.codecool.quest.logic.Inventory;
 import com.codecool.quest.logic.MapLoader;
 import com.codecool.quest.logic.actors.Player;
+import com.codecool.quest.logic.actors.Scorpion;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -98,8 +99,6 @@ public class Main extends Application {
             }
         }
     }
-
-
 
 
 
