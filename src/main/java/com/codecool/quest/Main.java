@@ -4,6 +4,7 @@ import com.codecool.quest.logic.Cell;
 import com.codecool.quest.logic.GameMap;
 import com.codecool.quest.logic.Inventory;
 import com.codecool.quest.logic.MapLoader;
+import com.codecool.quest.logic.actors.DeathSpirit;
 import com.codecool.quest.logic.actors.Player;
 import com.codecool.quest.logic.actors.Scorpion;
 import javafx.application.Application;
@@ -82,18 +83,26 @@ public class Main extends Application {
             switch (keyEvent.getCode()) {
                 case UP:
                     map.getPlayer().move(0, -1);
+                    map.getScorpion().move();
+                    map.getSpirit().move();
                     refresh();
                     break;
                 case DOWN:
                     map.getPlayer().move(0, 1);
+                    map.getScorpion().move();
+                    map.getSpirit().move();
                     refresh();
                     break;
                 case LEFT:
                     map.getPlayer().move(-1, 0);
+                    map.getScorpion().move();
+                    map.getSpirit().move();
                     refresh();
                     break;
                 case RIGHT:
                     map.getPlayer().move(1, 0);
+                    map.getScorpion().move();
+                    map.getSpirit().move();
                     refresh();
                     break;
             }

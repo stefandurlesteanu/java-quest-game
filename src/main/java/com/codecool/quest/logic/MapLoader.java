@@ -1,6 +1,7 @@
 package com.codecool.quest.logic;
 
 import com.codecool.quest.Tiles;
+import com.codecool.quest.logic.actors.DeathSpirit;
 import com.codecool.quest.logic.actors.Player;
 import com.codecool.quest.logic.actors.Scorpion;
 import com.codecool.quest.logic.actors.Skeleton;
@@ -17,6 +18,7 @@ public class MapLoader {
         Tiles.zoom = scanner.nextInt();
 
         scanner.nextLine(); // empty line
+        Cell deathSpiritCell = null;
 
         GameMap map = new GameMap(width, height, CellType.EMPTY);
         for (int y = 0; y < height; y++) {
@@ -56,7 +58,11 @@ public class MapLoader {
                             break;
                         case 'o':
                             cell.setType(CellType.FLOOR);
-                            new Scorpion(cell, 8, 3,1);
+                            map.setScorpion(new Scorpion(cell, 8, 3,1));
+                            break;
+                        case 'B':
+                            cell.setType(CellType.FLOOR);
+                            deathSpiritCell = cell;
                             break;
                         case '1':
                             cell.setType(CellType.TREE);
@@ -78,6 +84,9 @@ public class MapLoader {
                     }
                 }
             }
+        }
+        if (deathSpiritCell != null){
+            map.setDeathSpirit(new DeathSpirit(deathSpiritCell,map.getPlayer()));
         }
         return map;
     }

@@ -28,6 +28,7 @@ public class Tiles {
     static {
         //Actors
         tileMap.put("scorpion", new Tile(24,5));
+        tileMap.put("deathSpirit", new Tile(22,23));
         tileMap.put("nakedPlayer", new Tile(25, 0));
         tileMap.put("swordPlayer", new Tile(27, 0));
         tileMap.put("armorSwordPlayer", new Tile(28, 0));
