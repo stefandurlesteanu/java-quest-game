@@ -49,4 +49,10 @@ public class Player extends Actor {
     public String getTileName() {
         return equipment;
     }
+    public void setEquipment(String equipment){
+        this.equipment=equipment;
+    }
+    public String getEquipment(){
+        return this.equipment;
+    }
 }

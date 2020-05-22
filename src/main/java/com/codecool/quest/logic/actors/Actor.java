@@ -10,6 +10,7 @@ public abstract class Actor implements Drawable {
     private int health;
     private int damage;
     private int armor;
+    private Player player;
 
 
     public Actor(Cell cell, int health, int damage, int armor) {
@@ -53,6 +54,7 @@ public abstract class Actor implements Drawable {
             opponent.getCell().setActor(null);
         }
         if (this.health <= 0){
+            this.setHealth(0);
             cell.setActor(null);
         }
     }
