@@ -41,8 +41,12 @@ public abstract class Actor implements Drawable {
     public void attack(Actor opponent){
         int newHealth = opponent.getHealth() - this.getDamage() + opponent.getArmor();
         opponent.setHealth(newHealth);
-        int newArmor = this.getArmor() - 1;
-        this.setArmor(newArmor);
+        if(!(this.getArmor() < 1)){
+            int newArmor = this.getArmor() - 1;
+            this.setArmor(newArmor);
+        } else {
+            Inventory.removeItem("armor");
+        }
         if (opponent.getHealth() > 0){
             cell.getActor().health -= opponent.getDamage();
         } else {

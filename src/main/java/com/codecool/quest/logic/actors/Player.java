@@ -11,6 +11,7 @@ import java.util.List;
 
 public class Player extends Actor {
     private String equipment = "nakedPlayer";
+    private boolean isArmorAlready = false;
     private final ArrayList<String> inventory = new ArrayList<>(Arrays.asList("armor", "axe", "key"));
 
 
@@ -28,19 +29,20 @@ public class Player extends Actor {
             Inventory.addItem(this.getCell().getTileName());
             this.getCell().setType(CellType.FLOOR);
         }
-        if((Inventory.getItems().contains("axe")) && (Inventory.getItems().contains("armor"))){
-            this.setDamage(5);
-            this.setArmor(5);
-            equipment = "armorSwordPlayer";
-        }
-        else if(Inventory.getItems().contains("axe")){
+        if(Inventory.getItems().contains("axe")){
             this.setDamage(5);
             equipment = "swordPlayer";
+            if((Inventory.getItems().contains("axe")) && (Inventory.getItems().contains("armor"))){
+                equipment = "armorSwordPlayer";
+            }
         }
-        else if(Inventory.getItems().contains("armor")){
+        if((Inventory.getItems().contains("armor")) && (isArmorAlready == false)){
+            System.out.println(isArmorAlready);
             this.setArmor(5);
             equipment = "armorPlayer";
+            isArmorAlready = true;
         }
+
     }
 
 

@@ -45,6 +45,7 @@ public class Inventory {
     public static void addItem(String item){
         listOfItems.add(item);
     }
+    public static void removeItem(String item) {listOfItems.remove(item);}
 
     public static ObservableList<String> getItems() {
         return listOfItems;

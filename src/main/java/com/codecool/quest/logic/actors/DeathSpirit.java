@@ -1,8 +1,6 @@
 package com.codecool.quest.logic.actors;
 import com.codecool.quest.logic.Cell;
 import com.codecool.quest.logic.CellType;
-
-
 import java.lang.reflect.Array;
 import java.util.Random;
 
@@ -20,18 +18,6 @@ public class DeathSpirit extends Actor {
     @Override
     public String getTileName(){ return "deathSpirit"; }
     public void move(){
-
-
-
-
-
-
-
-
-
-
-
-
 //        int playerX = toFollow.getX();
 //        int playerY = toFollow.getY();
 //        int distanceX = playerX-cell.getX();
